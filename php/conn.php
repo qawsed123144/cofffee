@@ -1,4 +1,5 @@
 <?php
+use PDO;
 $username='root';
 $password='qawsed22';
 $dbname='testdb';
