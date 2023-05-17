@@ -24,17 +24,7 @@ use PDO;
 use PDOException;
 use RuntimeException;
 use TypeError;
-
-class DatabaseUnix
-{
-    public static function initUnixDatabaseConnection(): PDO
-    {
-        try {
-            // Note: Saving credentials in environment variables is convenient, but not
-            // secure - consider a more secure solution such as
-            // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
-            // keep secrets safe.
-            $username = getenv('root'); // e.g. 'your_db_user'
+$username = getenv('root'); // e.g. 'your_db_user'
             $password = getenv('qawsed22'); // e.g. 'your_db_password'
             $dbName = getenv('testdb'); // e.g. 'your_db_name'
             $instanceUnixSocket = getenv('/cloudsql/extreme-arch-384104:asia-east1:coffee-test'); // e.g. '/cloudsql/project:region:instance'
@@ -60,6 +50,16 @@ class DatabaseUnix
                 ]
                 # [END_EXCLUDE]
             );
+class DatabaseUnix
+{
+    public static function initUnixDatabaseConnection(): PDO
+    {
+        try {
+            // Note: Saving credentials in environment variables is convenient, but not
+            // secure - consider a more secure solution such as
+            // Cloud Secret Manager (https://cloud.google.com/secret-manager) to help
+            // keep secrets safe.
+            
         } catch (TypeError $e) {
             throw new RuntimeException(
                 sprintf(
