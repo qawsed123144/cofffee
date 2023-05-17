@@ -74,7 +74,7 @@ class DatabaseUnix
 
         return $conn;
     }
-}
+};
 # [END cloud_sql_mysql_pdo_connect_unix]
 $obj = new DatabaseUnix();
 $obj1= $obj->initUnixDatabaseConnection();
