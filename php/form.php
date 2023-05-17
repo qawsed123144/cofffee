@@ -9,8 +9,7 @@
 </head>
 
 <body>
-$ext = new ReflectionExtension('mysqli');
-var_dump($ext->getVersion());
+
 <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">咖啡咖啡</h4>
   <p>填表單訂咖啡 咖啡咖啡</p>
