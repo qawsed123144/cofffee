@@ -1,5 +1,5 @@
 <?php
-require_once('conn.php');
+include_once('conn.php');
 
 $name= $_POST['name'];
 $phone=$_POST['phone'];
