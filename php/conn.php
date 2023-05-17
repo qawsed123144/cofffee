@@ -1,13 +1,13 @@
 <?php
-$server="34.81.211.175";
+$server='34.81.211.175';
 $username='root';
 $password='qawsed22';
 $dbname='testdb';
 
-$conn=new \MySQLi($server,$username,$password,$dbname);
+$conn=new mysqli($server,$username,$password,$dbname);
 
-if(!empty($conn->connect_error)){
-    die('資料庫連線錯誤:' . $conn->connect_error);
-}
+// if(!empty($conn->connect_error)){
+//     die('資料庫連線錯誤:' . $conn->connect_error);
+// }
 ?>
 
