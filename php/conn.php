@@ -15,20 +15,20 @@ $username = getenv('root'); // e.g. 'your_db_user'
 $password = getenv('qawsed22'); // e.g. 'your_db_password'
 $dbName = getenv('testdb'); // e.g. 'your_db_name'
 $instanceUnixSocket = getenv('/cloudsql/extreme-arch-384104:asia-east1:coffee-test'); // e.g. '/cloudsql/project:region:instance'
-
+echo $dbName;
             // Connect using UNIX sockets
-$dsn = sprintf(
-        'mysql:dbname=%s;unix_socket=%s',
-        $dbName,
-        $instanceUnixSocket);
+// $dsn = sprintf(
+//         'mysql:dbname=%s;unix_socket=%s',
+//         $dbName,
+//         $instanceUnixSocket);
 
-            // Connect to the database.
-$conn = new PDO(
-        $dsn,
-        $username,
-        $password);
+//             // Connect to the database.
+// $conn = new PDO(
+//         $dsn,
+//         $username,
+//         $password);
 
-$result=$conn->query("select * from customer");
-echo $result;
+// $result=$conn->query("select * from customer");
+// echo $result;
 
 ?>
