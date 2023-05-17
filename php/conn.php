@@ -3,12 +3,12 @@ $username='root';
 $password='qawsed22';
 $dbname='testdb';
 $cloud_sql_name = getenv('extreme-arch-384104:asia-east1:coffee-test');
-$socket_dir=getenv('DB_SOCKET_DIR') ?: '/cloudsql';
+// $socket_dir=getenv('DB_SOCKET_DIR') ?: '/cloudsql';
 
 $dsn = sprintf(
     'mysql:dbname=%s;unix_socket=%s',
     $dbname,
-    $socket_dir,
+    // $socket_dir,
     $cloud_sql_name,
 );
 
