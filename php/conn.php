@@ -41,14 +41,6 @@ $username = getenv('root'); // e.g. 'your_db_user'
                 $dsn,
                 $username,
                 $password,
-                # [START_EXCLUDE]
-                // Here we set the connection timeout to five seconds and ask PDO to
-                // throw an exception if any errors occur.
-                [
-                    PDO::ATTR_TIMEOUT => 5,
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                ]
-                # [END_EXCLUDE]
             );
 class DatabaseUnix
 {
