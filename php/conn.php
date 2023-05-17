@@ -10,7 +10,6 @@ $dsn = sprintf(
     $dbname,
     $socket_dir,
     $cloud_sql_name,
-
 );
 
 $conn = new PDO(
