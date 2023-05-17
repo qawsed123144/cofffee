@@ -6,9 +6,9 @@ use PDOException;
 use RuntimeException;
 use TypeError;
 
-class DatabaseUnix
+class DatabaseTcp
 {
-    public static function initUnixDatabaseConnection(): PDO
+    public static function initTcpDatabaseConnection(): PDO
     {
         try {
             // Note: Saving credentials in environment variables is convenient, but not
@@ -18,16 +18,12 @@ class DatabaseUnix
             $username = getenv('root'); // e.g. 'your_db_user'
             $password = getenv('qawsed22'); // e.g. 'your_db_password'
             $dbName = getenv('testdb'); // e.g. 'your_db_name'
-            $instanceUnixSocket = getenv('/cloudsql/extreme-arch-384104:asia-east1:coffee-test'); // e.g. '/cloudsql/project:region:instance'
+            $instanceHost = getenv('34.81.211.175'); // e.g. '127.0.0.1' ('172.17.0.1' for GAE Flex)
 
-            // Connect using UNIX sockets
-            $dsn = sprintf(
-                'mysql:dbname=%s;unix_socket=%s',
-                $dbName,
-                $instanceUnixSocket
-            );
+            // Connect using TCP
+            $dsn = sprintf('mysql:dbname=%s;host=%s', $dbName, $instanceHost);
 
-            // Connect to the database.
+            // Connect to the database
             $conn = new PDO(
                 $dsn,
                 $username,
@@ -38,12 +34,11 @@ class DatabaseUnix
             throw new RuntimeException(
                 sprintf(
                     'Invalid or missing configuration! Make sure you have set ' .
-                        '$username, $password, $dbName, ' .
-                        'and $instanceUnixSocket (for UNIX socket mode). ' .
+                        '$username, $password, $dbName, and $instanceHost (for TCP mode). ' .
                         'The PHP error was %s',
                     $e->getMessage()
                 ),
-                (int) $e->getCode(),
+                $e->getCode(),
                 $e
             );
         } catch (PDOException $e) {
@@ -56,7 +51,7 @@ class DatabaseUnix
                     'https://cloud.google.com/sql/docs/mysql/connect-external-app',
                     $e->getMessage()
                 ),
-                (int) $e->getCode(),
+                $e->getCode(),
                 $e
             );
         }
@@ -64,5 +59,5 @@ class DatabaseUnix
         return $conn;
     }
 }
-?>
 
+?>
