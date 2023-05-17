@@ -36,7 +36,7 @@ class DatabaseTcp
             // keep secrets safe.
             $username = getenv('root'); // e.g. 'your_db_user'
             $password = getenv('qawsed22'); // e.g. 'your_db_password'
-            $dbName = getenv('testdb); // e.g. 'your_db_name'
+            $dbName = getenv('testdb'); // e.g. 'your_db_name'
             $instanceHost = getenv('34.81.211.175'); // e.g. '127.0.0.1' ('172.17.0.1' for GAE Flex)
 
             // Connect using TCP
