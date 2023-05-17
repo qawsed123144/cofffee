@@ -8,10 +8,10 @@ $sql=sprintf("INSERT INTO customer(name,phone,date) VALUES('$name','$phone','$da
 
 
 $result=$conn->query($sql);
-if (!$result){
-    die($conn->error);
-    echo "none";
-}
+// if (!$result){
+//     die($conn->error);
+//     echo "none";
+// }
 
 header("Location:form.php");
 ?>
