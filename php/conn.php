@@ -15,7 +15,7 @@ $username = 'root'; // e.g. 'your_db_user'
 $password = 'qawsed22'; // e.g. 'your_db_password'
 $dbName = 'testdb'; // e.g. 'your_db_name'
 $instanceUnixSocket = '/cloudsql/extreme-arch-384104:asia-east1:coffee-test'; // e.g. '/cloudsql/project:region:instance'
-echo $dbName;
+
             // Connect using UNIX sockets
 $dsn = sprintf(
         'mysql:dbname=%s;unix_socket=%s',
@@ -27,7 +27,5 @@ $conn = new PDO(
         $dsn,
         $username,
         $password);
-
-
 
 ?>
