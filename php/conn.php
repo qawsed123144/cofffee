@@ -28,14 +28,6 @@ use PDO;
                 $dsn,
                 $username,
                 $password,
-                # [START_EXCLUDE]
-                // Here we set the connection timeout to five seconds and ask PDO to
-                // throw an exception if any errors occur.
-                [
-                    PDO::ATTR_TIMEOUT => 5,
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                ]
-                # [END_EXCLUDE]
             );
 $result=$conn->query("select * from customer");
 echo $result;
